@@ -11,8 +11,12 @@ function getInput(string $filename): array
     $inputFile = fopen($filename, 'r');
     $inputs = [];
     while (($line = fgets($inputFile)) !== false) {
-        $inputs[] = $line;
+        $inputs[] = str_replace("\n", "", str_replace("\r", "", $line));
     }
     fclose($inputFile);
     return $inputs;
+}
+
+function outputLine($string){
+    echo $string . PHP_EOL;
 }
