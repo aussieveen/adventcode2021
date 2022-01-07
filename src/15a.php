@@ -1,9 +1,23 @@
 <?php
 
-$input = getInput('s1.txt');
-
+$input = getInput('15.txt');
+$map = [];
 foreach($input as $line){
-    echo $line . PHP_EOL;
+    $row = [];
+    foreach(str_split($line) as $char) {
+        $row[] = (int)$char;
+    }
+    $map[] = $row;
+}
+$mx = count($map[0]) - 1;
+$my = count($map) - 1;
+outputMap($map);
+
+$priorityQueue = [];
+
+$found = false;
+while(!$found){
+
 }
 
 function getInput(string $filename): array
